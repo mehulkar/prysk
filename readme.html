@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prysk &mdash; Prysk 0.8.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Installation" href="installation.html" />
+    <link rel="prev" title="Welcome to Prysk’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Prysk
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Prysk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="format.html">Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Prysk</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Prysk</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="prysk">
+<h1>Prysk<a class="headerlink" href="#prysk" title="Permalink to this headline"></a></h1>
+<a class="reference external image-reference" href="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml"><img alt="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg" src="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/Nicoretti/prysk?branch=master"><img alt="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master" src="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://pypi.org/project/prysk/"><img alt="https://img.shields.io/badge/pypi%20package-available-blue.svg" src="https://img.shields.io/badge/pypi%20package-available-blue.svg" /></a>
+<p>Prysk is a fork of the popular snapshot testing tool <a class="reference external" href="https://bitheap.org/cram">Cram</a>.
+Even though <a class="reference external" href="https://bitheap.org/cram">Cram</a> is pretty complete and mature for everyday use,
+Prysk want’s to continue pushing it’s development forward.</p>
+<p>Prysk tests look like snippets of interactive shell sessions. Prysk runs
+each command and compares the command output in the test with the
+command’s actual output.</p>
+<p>Here’s a snippet from <a class="reference external" href="https://github.com/nicoretti/prysk/blob/master/tests/usage.t">Prysk’s own test suite</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Set up prysk alias and example tests:
+
+  $ . &quot;$TESTDIR&quot;/setup.sh
+
+Usage:
+
+  $ prysk -h
+  [Uu]sage: prysk \[OPTIONS\] TESTS\.\.\. (re)
+
+  [Oo]ptions: (re)
+    -h, --help          show this help message and exit
+    -V, --version       show version information and exit
+    -q, --quiet         don&#39;t print diffs
+    -v, --verbose       show filenames and test status
+    -i, --interactive   interactively merge changed test output
+    -d, --debug         write script output directly to the terminal
+    -y, --yes           answer yes to all questions
+    -n, --no            answer no to all questions
+    -E, --preserve-env  don&#39;t reset common environment variables
+    --keep-tmpdir       keep temporary directories
+    --shell=PATH        shell to use for running tests (default: /bin/sh)
+    --shell-opts=OPTS   arguments to invoke shell with
+    --indent=NUM        number of spaces to use for indentation (default: 2)
+    --xunit-file=PATH   path to write xUnit XML output
+</pre></div>
+</div>
+<p>The format in a nutshell:</p>
+<ul class="simple">
+<li><p>Prysk tests use the <code class="docutils literal notranslate"><span class="pre">.t</span></code> file extension.</p></li>
+<li><p>Lines beginning with two spaces, a dollar sign, and a space are run
+in the shell.</p></li>
+<li><p>Lines beginning with two spaces, a greater than sign, and a space
+allow multi-line commands.</p></li>
+<li><p>All other lines beginning with two spaces are considered command
+output.</p></li>
+<li><p>Output lines ending with a space and the keyword <code class="docutils literal notranslate"><span class="pre">(re)</span></code> are
+matched as <a class="reference external" href="https://en.wikipedia.org/wiki/Perl_Compatible_Regular_Expressions">Perl-compatible regular expressions</a>.</p></li>
+<li><p>Lines ending with a space and the keyword <code class="docutils literal notranslate"><span class="pre">(glob)</span></code> are matched
+with a glob-like syntax. The only special characters supported are
+<code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">?</span></code>. Both characters can be escaped using <code class="docutils literal notranslate"><span class="pre">\</span></code>, and the
+backslash can be escaped itself.</p></li>
+<li><p>Output lines ending with either of the above keywords are always
+first matched literally with actual command output.</p></li>
+<li><p>Lines ending with a space and the keyword <code class="docutils literal notranslate"><span class="pre">(no-eol)</span></code> will match
+actual output that doesn’t end in a newline.</p></li>
+<li><p>Actual output lines containing unprintable characters are escaped
+and suffixed with a space and the keyword <code class="docutils literal notranslate"><span class="pre">(esc)</span></code>. Lines matching
+unprintable output must also contain the keyword.</p></li>
+<li><p>Anything else is a comment.</p></li>
+</ul>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
+<p>Prysk will print a dot for each passing test. If a test fails, a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Diff#Unified_format">unified context diff</a> is printed showing the test’s expected output
+and the actual output. Skipped tests (empty tests and tests that exit
+with return code <code class="docutils literal notranslate"><span class="pre">80</span></code>) are marked with <code class="docutils literal notranslate"><span class="pre">s</span></code> instead of a dot.</p>
+<p>For example, if we run Prysk on <a class="reference external" href="https://github.com/nicoretti/prysk/tree/master/examples">its own example tests</a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.s.!
+--- examples/fail.t
++++ examples/fail.t.err
+@@ -3,21 +3,22 @@
+   $ echo 1
+   1
+   $ echo 1
+-  2
++  1
+   $ echo 1
+   1
+
+ Invalid regex:
+
+   $ echo 1
+-  +++ (re)
++  1
+
+ Offset regular expression:
+
+   $ printf &#39;foo\nbar\nbaz\n\n1\nA\n@\n&#39;
+   foo
++  bar
+   baz
+
+   \d (re)
+   [A-Z] (re)
+-  #
++  @
+s.
+# Ran 6 tests, 2 skipped, 1 failed.
+</pre></div>
+</div>
+<p>Prysk will also write the test with its actual output to
+<code class="docutils literal notranslate"><span class="pre">examples/fail.t.err</span></code>, allowing you to use other diff tools. This
+file is automatically removed the next time the test passes.</p>
+<p>When you’re first writing a test, you might just write the commands
+and run the test to see what happens. If you run Prysk with <code class="docutils literal notranslate"><span class="pre">-i</span></code> or
+<code class="docutils literal notranslate"><span class="pre">--interactive</span></code>, you’ll be prompted to merge the actual output back
+into the test. This makes it easy to quickly prototype new tests.</p>
+<p>You can specify a default set of options by creating a <code class="docutils literal notranslate"><span class="pre">.prysk</span></code>
+file. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">prysk</span><span class="p">]</span>
+<span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">indent</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+<p>Is the same as invoking Prysk with <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--indent=4</span></code>.</p>
+<p>To change what configuration file Prysk loads, you can set the
+<code class="docutils literal notranslate"><span class="pre">PRYSKRC</span></code> environment variable. You can also specify command line
+options in the <code class="docutils literal notranslate"><span class="pre">PRYSK</span></code> environment variable.</p>
+<p>Note that the following environment variables are reset before tests
+are run:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TMPDIR</span></code>, <code class="docutils literal notranslate"><span class="pre">TEMP</span></code>, and <code class="docutils literal notranslate"><span class="pre">TMP</span></code> are set to the test runner’s
+<code class="docutils literal notranslate"><span class="pre">tmp</span></code> directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LANG</span></code>, <code class="docutils literal notranslate"><span class="pre">LC_ALL</span></code>, and <code class="docutils literal notranslate"><span class="pre">LANGUAGE</span></code> are set to <code class="docutils literal notranslate"><span class="pre">C</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TZ</span></code> is set to <code class="docutils literal notranslate"><span class="pre">GMT</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLUMNS</span></code> is set to <code class="docutils literal notranslate"><span class="pre">80</span></code>. (Note: When using <code class="docutils literal notranslate"><span class="pre">--shell=zsh</span></code>,
+this cannot be reset. It will reflect the actual terminal’s width.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CDPATH</span></code> and <code class="docutils literal notranslate"><span class="pre">GREP_OPTIONS</span></code> are set to an empty string.</p></li>
+</ul>
+<p>Prysk also provides the following environment variables to tests:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PRYSK_TEMP</span></code>, set to the test runner’s temporary directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TESTDIR</span></code>, set to the directory containing the test file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TESTFILE</span></code>, set to the basename of the current test file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TESTSHELL</span></code>, set to the value specified by <code class="docutils literal notranslate"><span class="pre">--shell</span></code>.</p></li>
+</ul>
+<p>Also note that care should be taken with commands that close the test
+shell’s <code class="docutils literal notranslate"><span class="pre">stdin</span></code>. For example, if you’re trying to invoke <code class="docutils literal notranslate"><span class="pre">ssh</span></code> in
+a test, try adding the <code class="docutils literal notranslate"><span class="pre">-n</span></code> option to prevent it from closing
+<code class="docutils literal notranslate"><span class="pre">stdin</span></code>. Similarly, if you invoke a daemon process that inherits
+<code class="docutils literal notranslate"><span class="pre">stdout</span></code> and fails to close it, it may cause Prysk to hang while
+waiting for the test shell’s <code class="docutils literal notranslate"><span class="pre">stdout</span></code> to be fully closed.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to Prysk’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Nicola Coretti.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
