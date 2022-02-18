@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="News" href="news.html" /><link rel="prev" title="Examples" href="examples.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Contributors" href="contributors.html" /><link rel="prev" title="Getting Started" href="getting_started.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
         <title>Development - Prysk 0.11.0</title>
@@ -134,7 +134,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -154,13 +154,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Prysk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="format.html">Format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
 </ul>
 
@@ -182,7 +181,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -190,12 +189,57 @@
         <article role="main">
           <section id="development">
 <h1>Development<a class="headerlink" href="#development" title="Permalink to this headline">¶</a></h1>
-<p>Download the official development repository using <a class="reference external" href="http://git-scm.com/">Git</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nicoretti</span><span class="o">/</span><span class="n">prysk</span><span class="o">.</span><span class="n">git</span>
+<section id="the-repository">
+<h2>The Repository<a class="headerlink" href="#the-repository" title="Permalink to this headline">¶</a></h2>
+<p>Download the official development repository using <a class="reference external" href="http://git-scm.com/">Git</a></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/nicoretti/prysk.git</span>
 </pre></div>
 </div>
 <p>Visit <a class="reference external" href="https://github.com/nicoretti/prysk">GitHub</a> if you’d like to fork the project, watch for new changes, or
 report issues.</p>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>In order to run all tests locally you need to have the following tools
+installed.</p>
+<section id="python">
+<h3>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>python &gt;= 3.7</p></li>
+<li><p>poetry</p></li>
+</ul>
+</section>
+<section id="shells">
+<h3>Shells<a class="headerlink" href="#shells" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>dash</p></li>
+<li><p>bash</p></li>
+<li><p>zsh</p></li>
+</ul>
+<p>If you have these dependencies all setup, just run a</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">poetry install</span>
+</pre></div>
+</div>
+<p>within the root folder of the project. Now you should be good to go!</p>
+</section>
+</section>
+<section id="nox">
+<h2>Nox<a class="headerlink" href="#nox" title="Permalink to this headline">¶</a></h2>
+<p>Mostly all task you will need to take care of are automated
+using <a class="reference external" href="https://nox.thea.codes/en/stable/">nox</a>. So if you want to run all checks and build
+the documentation etc. just run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nox</span>
+</pre></div>
+</div>
+<p>To get a list of all available targets run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nox --list</span>
+</pre></div>
+</div>
+<p>For running a specific target run:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">nox -s &lt;target&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
         </article>
@@ -203,23 +247,23 @@ report issues.</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="news.html">
+          <a class="next-page" href="contributors.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">News</div>
+                <div class="title">Contributors</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="examples.html">
+          <a class="prev-page" href="getting_started.html">
               <svg><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Examples</div>
+                <div class="title">Getting Started</div>
                 
               </div>
             </a>
@@ -237,8 +281,33 @@ report issues.</p>
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            Contents
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Development</a><ul>
+<li><a class="reference internal" href="#the-repository">The Repository</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li><a class="reference internal" href="#python">Python</a></li>
+<li><a class="reference internal" href="#shells">Shells</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#nox">Nox</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>

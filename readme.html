@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Installation" href="installation.html" /><link rel="prev" title="Welcome to Prysk’s documentation!" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Getting Started" href="getting_started.html" /><link rel="prev" title="Prysk" href="index.html" />
 
     <meta name="generator" content="sphinx-4.4.0, furo 2022.01.02"/>
         <title>Prysk - Prysk 0.11.0</title>
@@ -154,13 +154,12 @@
   <input type="hidden" name="area" value="default">
 </form>
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
-  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+  <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
 <ul class="current">
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Prysk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="format.html">Format</a></li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="development.html">Development</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributors.html">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="news.html">News</a></li>
 </ul>
 
@@ -203,30 +202,30 @@ Prysk want’s to continue pushing it’s development forward.</p>
 each command and compares the command output in the test with the
 command’s actual output.</p>
 <p>Here’s a snippet from <a class="reference external" href="https://github.com/Nicoretti/prysk/blob/master/test/integration/prysk/usage.t">Prysk’s own test suite</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Set up prysk alias and example tests:
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Set up prysk alias and example tests:</span>
 
-  $ . "$TESTDIR"/setup.sh
+<span class="gp">  $ </span>. <span class="s2">"</span><span class="nv">$TESTDIR</span><span class="s2">"</span>/setup.sh
 
-Usage:
+<span class="go">Usage:</span>
 
-  $ prysk -h
-  [Uu]sage: prysk \[OPTIONS\] TESTS\.\.\. (re)
+<span class="gp">  $ </span>prysk -h
+<span class="go">  [Uu]sage: prysk \[OPTIONS\] TESTS\.\.\. (re)</span>
 
-  [Oo]ptions: (re)
-    -h, --help          show this help message and exit
-    -V, --version       show version information and exit
-    -q, --quiet         don't print diffs
-    -v, --verbose       show filenames and test status
-    -i, --interactive   interactively merge changed test output
-    -d, --debug         write script output directly to the terminal
-    -y, --yes           answer yes to all questions
-    -n, --no            answer no to all questions
-    -E, --preserve-env  don't reset common environment variables
-    --keep-tmpdir       keep temporary directories
-    --shell=PATH        shell to use for running tests (default: /bin/sh)
-    --shell-opts=OPTS   arguments to invoke shell with
-    --indent=NUM        number of spaces to use for indentation (default: 2)
-    --xunit-file=PATH   path to write xUnit XML output
+<span class="go">  [Oo]ptions: (re)</span>
+<span class="go">    -h, --help          show this help message and exit</span>
+<span class="go">    -V, --version       show version information and exit</span>
+<span class="go">    -q, --quiet         don't print diffs</span>
+<span class="go">    -v, --verbose       show filenames and test status</span>
+<span class="go">    -i, --interactive   interactively merge changed test output</span>
+<span class="go">    -d, --debug         write script output directly to the terminal</span>
+<span class="go">    -y, --yes           answer yes to all questions</span>
+<span class="go">    -n, --no            answer no to all questions</span>
+<span class="go">    -E, --preserve-env  don't reset common environment variables</span>
+<span class="go">    --keep-tmpdir       keep temporary directories</span>
+<span class="go">    --shell=PATH        shell to use for running tests (default: /bin/sh)</span>
+<span class="go">    --shell-opts=OPTS   arguments to invoke shell with</span>
+<span class="go">    --indent=NUM        number of spaces to use for indentation (default: 2)</span>
+<span class="go">    --xunit-file=PATH   path to write xUnit XML output</span>
 </pre></div>
 </div>
 <p>The format in a nutshell:</p>
@@ -260,37 +259,37 @@ unprintable output must also contain the keyword.</p></li>
 and the actual output. Skipped tests (empty tests and tests that exit
 with return code <code class="docutils literal notranslate"><span class="pre">80</span></code>) are marked with <code class="docutils literal notranslate"><span class="pre">s</span></code> instead of a dot.</p>
 <p>For example, if we run Prysk on <a class="reference external" href="https://github.com/nicoretti/prysk/tree/master/examples">its own example tests</a>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.s.!
---- examples/fail.t
-+++ examples/fail.t.err
-@@ -3,21 +3,22 @@
-   $ echo 1
-   1
-   $ echo 1
--  2
-+  1
-   $ echo 1
-   1
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="w">.s.!</span>
+<span class="gd">--- examples/fail.t</span><span class="w"></span>
+<span class="gi">+++ examples/fail.t.err</span><span class="w"></span>
+<span class="gu">@@ -3,21 +3,22 @@</span><span class="w"></span>
+<span class="w"> </span>  $ echo 1<span class="w"></span>
+<span class="w"> </span>  1<span class="w"></span>
+<span class="w"> </span>  $ echo 1<span class="w"></span>
+<span class="gd">-  2</span><span class="w"></span>
+<span class="gi">+  1</span><span class="w"></span>
+<span class="w"> </span>  $ echo 1<span class="w"></span>
+<span class="w"> </span>  1<span class="w"></span>
 
- Invalid regex:
+<span class="w"> </span>Invalid regex:<span class="w"></span>
 
-   $ echo 1
--  +++ (re)
-+  1
+<span class="w"> </span>  $ echo 1<span class="w"></span>
+<span class="gd">-  +++ (re)</span><span class="w"></span>
+<span class="gi">+  1</span><span class="w"></span>
 
- Offset regular expression:
+<span class="w"> </span>Offset regular expression:<span class="w"></span>
 
-   $ printf 'foo\nbar\nbaz\n\n1\nA\n@\n'
-   foo
-+  bar
-   baz
+<span class="w"> </span>  $ printf 'foo\nbar\nbaz\n\n1\nA\n@\n'<span class="w"></span>
+<span class="w"> </span>  foo<span class="w"></span>
+<span class="gi">+  bar</span><span class="w"></span>
+<span class="w"> </span>  baz<span class="w"></span>
 
-   \d (re)
-   [A-Z] (re)
--  #
-+  @
-s.
-# Ran 6 tests, 2 skipped, 1 failed.
+<span class="w"> </span>  \d (re)<span class="w"></span>
+<span class="w"> </span>  [A-Z] (re)<span class="w"></span>
+<span class="gd">-  #</span><span class="w"></span>
+<span class="gi">+  @</span><span class="w"></span>
+<span class="w">s.</span>
+<span class="w"># Ran 6 tests, 2 skipped, 1 failed.</span>
 </pre></div>
 </div>
 <p>Prysk will also write the test with its actual output to
@@ -302,9 +301,9 @@ and run the test to see what happens. If you run Prysk with <code class="docutil
 into the test. This makes it easy to quickly prototype new tests.</p>
 <p>You can specify a default set of options by creating a <code class="docutils literal notranslate"><span class="pre">.prysk</span></code>
 file. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">prysk</span><span class="p">]</span>
-<span class="n">verbose</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">indent</span> <span class="o">=</span> <span class="mi">4</span>
+<div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="k">[prysk]</span><span class="w"></span>
+<span class="na">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span><span class="w"></span>
+<span class="na">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Is the same as invoking Prysk with <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--indent=4</span></code>.</p>
@@ -343,12 +342,12 @@ waiting for the test shell’s <code class="docutils literal notranslate"><span 
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="installation.html">
+          <a class="next-page" href="getting_started.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Installation</div>
+                <div class="title">Getting Started</div>
               </div>
               <svg><use href="#svg-arrow-right"></use></svg>
             </a>
