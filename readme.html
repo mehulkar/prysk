@@ -306,17 +306,7 @@ file is automatically removed the next time the test passes.</p>
 and run the test to see what happens. If you run Prysk with <code class="docutils literal notranslate"><span class="pre">-i</span></code> or
 <code class="docutils literal notranslate"><span class="pre">--interactive</span></code>, you’ll be prompted to merge the actual output back
 into the test. This makes it easy to quickly prototype new tests.</p>
-<p>You can specify a default set of options by creating a <code class="docutils literal notranslate"><span class="pre">.prysk</span></code>
-file. For example:</p>
-<div class="highlight-cfg notranslate"><div class="highlight"><pre><span></span><span class="k">[prysk]</span><span class="w"></span>
-<span class="na">verbose</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">True</span><span class="w"></span>
-<span class="na">indent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span><span class="w"></span>
-</pre></div>
-</div>
 <p>Is the same as invoking Prysk with <code class="docutils literal notranslate"><span class="pre">--verbose</span></code> and <code class="docutils literal notranslate"><span class="pre">--indent=4</span></code>.</p>
-<p>To change what configuration file Prysk loads, you can set the
-<code class="docutils literal notranslate"><span class="pre">PRYSKRC</span></code> environment variable. You can also specify command line
-options in the <code class="docutils literal notranslate"><span class="pre">PRYSK</span></code> environment variable.</p>
 <p>Note that the following environment variables are reset before tests
 are run:</p>
 <ul class="simple">
