@@ -5,10 +5,10 @@
     <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Prysk" href="readme.html" />
 
-    <meta name="generator" content="sphinx-4.5.0, furo 2022.04.07"/>
+    <meta name="generator" content="sphinx-4.5.0, furo 2022.06.21"/>
         <title>Prysk 0.12.2</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=68f4518137b9aefe99b631505a2064c3c42c9852" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=40978830699223671f4072448e654b5958f38b89" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
@@ -180,7 +180,8 @@
           </svg>
           <span>Back to top</span>
         </a>
-        <div class="content-icon-container"><div class="theme-toggle-container theme-toggle-content">
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
             <button class="theme-toggle">
               <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
               <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
@@ -196,12 +197,12 @@
         <article role="main">
           <section id="prysk">
 <h1>Prysk<a class="headerlink" href="#prysk" title="Permalink to this headline">#</a></h1>
-<a class="reference external image-reference" href="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml"><img alt="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg" src="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg"/></a>
-<a class="reference external image-reference" href="https://coveralls.io/github/Nicoretti/prysk?branch=master"><img alt="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master" src="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master"/></a>
-<a class="reference external image-reference" href="https://pycqa.github.io/isort/"><img alt="https://img.shields.io/badge/imports-isort-ef8336.svg" src="https://img.shields.io/badge/imports-isort-ef8336.svg"/></a>
-<a class="reference external image-reference" href="https://github.com/psf/black"><img alt="https://img.shields.io/badge/code%20style-black-000000.svg" src="https://img.shields.io/badge/code%20style-black-000000.svg"/></a>
-<a class="reference external image-reference" href="https://pypi.org/project/prysk/"><img alt="https://img.shields.io/pypi/v/prysk" src="https://img.shields.io/pypi/v/prysk"/></a>
-<a class="reference external image-reference" href="https://nicoretti.github.io/prysk/"><img alt="https://img.shields.io/badge/docs-available-blue.svg" src="https://img.shields.io/badge/docs-available-blue.svg"/></a>
+<a class="reference external image-reference" href="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml"><img alt="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg" src="https://github.com/Nicoretti/prysk/actions/workflows/verifier.yaml/badge.svg" /></a>
+<a class="reference external image-reference" href="https://coveralls.io/github/Nicoretti/prysk?branch=master"><img alt="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master" src="https://coveralls.io/repos/github/Nicoretti/prysk/badge.svg?branch=master" /></a>
+<a class="reference external image-reference" href="https://pycqa.github.io/isort/"><img alt="https://img.shields.io/badge/imports-isort-ef8336.svg" src="https://img.shields.io/badge/imports-isort-ef8336.svg" /></a>
+<a class="reference external image-reference" href="https://github.com/psf/black"><img alt="https://img.shields.io/badge/code%20style-black-000000.svg" src="https://img.shields.io/badge/code%20style-black-000000.svg" /></a>
+<a class="reference external image-reference" href="https://pypi.org/project/prysk/"><img alt="https://img.shields.io/pypi/v/prysk" src="https://img.shields.io/pypi/v/prysk" /></a>
+<a class="reference external image-reference" href="https://nicoretti.github.io/prysk/"><img alt="https://img.shields.io/badge/docs-available-blue.svg" src="https://img.shields.io/badge/docs-available-blue.svg" /></a>
 <p>Prysk is a fork of the popular snapshot testing tool <a class="reference external" href="https://bitheap.org/cram">Cram</a>.
 Even though <a class="reference external" href="https://bitheap.org/cram">Cram</a> is pretty complete and mature for everyday use,
 Prysk want’s to continue pushing it’s development forward.</p>
@@ -211,7 +212,7 @@ command’s actual output.</p>
 <p>Here’s a snippet from <a class="reference external" href="https://github.com/Nicoretti/prysk/blob/master/test/integration/prysk/usage.t">Prysk’s own test suite</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Set up prysk alias and example tests:</span>
 
-<span class="gp">  $ </span>. <span class="s2">"</span><span class="nv">$TESTDIR</span><span class="s2">"</span>/setup.sh
+<span class="gp">  $ </span>. <span class="s2">&quot;</span><span class="nv">$TESTDIR</span><span class="s2">&quot;</span>/setup.sh
 
 <span class="go">Usage:</span>
 
@@ -221,13 +222,13 @@ command’s actual output.</p>
 <span class="go">  [Oo]ptions: (re)</span>
 <span class="go">    -h, --help          show this help message and exit</span>
 <span class="go">    -V, --version       show version information and exit</span>
-<span class="go">    -q, --quiet         don't print diffs</span>
+<span class="go">    -q, --quiet         don&#39;t print diffs</span>
 <span class="go">    -v, --verbose       show filenames and test status</span>
 <span class="go">    -i, --interactive   interactively merge changed test output</span>
 <span class="go">    -d, --debug         write script output directly to the terminal</span>
 <span class="go">    -y, --yes           answer yes to all questions</span>
 <span class="go">    -n, --no            answer no to all questions</span>
-<span class="go">    -E, --preserve-env  don't reset common environment variables</span>
+<span class="go">    -E, --preserve-env  don&#39;t reset common environment variables</span>
 <span class="go">    --keep-tmpdir       keep temporary directories</span>
 <span class="go">    --shell=PATH        shell to use for running tests (default: /bin/sh)</span>
 <span class="go">    --shell-opts=OPTS   arguments to invoke shell with</span>
@@ -286,7 +287,7 @@ with return code <code class="docutils literal notranslate"><span class="pre">80
 
 <span class="w"> </span>Offset regular expression:<span class="w"></span>
 
-<span class="w"> </span>  $ printf 'foo\nbar\nbaz\n\n1\nA\n@\n'<span class="w"></span>
+<span class="w"> </span>  $ printf &#39;foo\nbar\nbaz\n\n1\nA\n@\n&#39;<span class="w"></span>
 <span class="w"> </span>  foo<span class="w"></span>
 <span class="gi">+  bar</span><span class="w"></span>
 <span class="w"> </span>  baz<span class="w"></span>
